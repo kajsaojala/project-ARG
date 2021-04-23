@@ -1,0 +1,69 @@
+//TANKAR:
+STATE innehåll: inloggad spelares id/index, funktion för att komma åt spelarens ryggsäck + level (som pineiros i uppg 3),
+                nearby Portal funktion som returnerar ett värde
+Varje gång spelaren sparar något i ryggsäcken skickas en req till vår api för att spara det i databasen (vi kanske kommer använda något som heter webSocket istället för att göra en request)
+Under hela spelets gång hämtas spelarens location var 15:e sek för att känna av om personen är nära en portal, så att den kan lysa upp
+
+Kajsas egna tankar om webSocket
+(webSocket för att ändra mainview i realtid, dvs typ progressbar, location, något börjar lysa? använda moduler för att ladda in js filer för åtkomst till funktioner & variabler?
+Node.js -> webSocket -> Spara saker i realtid med .send osv ist för att skicka req till api varje gång spelaren sparar något eller har bytt level)
+
+
+
+//VAD SKER PÅ ALLA SIDOR:
+
+//INDEX/START
+index.php: 
+session_start så att vi kan spara den som loggar in med SESSION[]
+Ev. include header & footer?
+Ladda HTML 
+
+Vid registrera --> skicka req till vår api.php --> om godkänt läggs användar till i vår databas --> mainview.php laddas in
+Vid login --> skicka form till login.php som gör checkar, om godkänt --> mainview.php laddas in ELSE --> felmeddelande
+Vid logout --> förstör session --> ladda in index.php
+
+
+//MAINVIEW/SPELVY
+home.php:
+ladda in baselement (logga ut-knapp, progressbar, tid+år+coordinates, ryggsäckslider med element, karta i bakgrund, tre knappar)
+i JS när sidan laddas in kollar vi vilken level spelaren är på genom olika funktioner för att tex fylla i progressbar, tid. Kolla även var spelaren befinner sig för kartan
+
+Vid klick på karta --> ladda in ny sida tex map.php?location=kordinater
+Vid klick på portal --> ladda in ny sida portal.php
+Vid klick på ryggsäck --> ladda in ny sida tex inventory.php (tror ej vi behöver get-param med spelarens id, det kan vi spara som variabel i js-fil istället)
+
+
+//KARTVY
+map.php?location=kordinater (så att vi enkelt kan hämta spelarens location från get parametern?):
+ladda in stor karta + tre symboler/knappar
+Klicka på knapp för att se antingen portal/ledtråd/other?
+
+
+//PORTALVY (se detaljer i portal.txt)
+portal.php:
+ladda in det som alltid visas (öppna portal sektion, mina öppnade portaler sektion)
+gör en check på vilken level spelaren är för att dynamiskt skapa elementen för de redan upplåsta portalerna
+
+Vid klick på OPEN --> CHECK om kod stämmer --> ladda in sidan portalopen.php?portal=portalID
+Vid klick på öppen portal --> CHECK om spelaren är på rätt coordinates --> ladda in sidan portalopen.php?portal=portalID
+
+
+//PORTALOPEN/När man har gått in i en portal i appenda
+portalopen.php?portal=portalID:
+ladda in det som alltid ska visas (portalår, go-knapp, recevied things, collect-knapp)
+Check vilken level spelaren är på för att visa recevied saker
+
+Vid klick på GO --> Check igen att spelaren är på rätt plats, IF true ladda in 360-bild
+Vid klick på recevied sak --> display div med tex en YT-video
+Vid klick collect --> display div för collect med inputfält och save-knapp
+
+
+//RYGGSÄCK 
+inventory.php:
+ladda in det som alltid ska visas (titel, stor ruta som fungerar som en slider, smårutor undertill)
+Check vilken level spelaren är på för att ladda in collected items 
+
+
+//API 
+api.php:
+här checkar vi tex en ny registrering av spelare, sparar saker i databas när spelare har collectat en item, uppdaterar nycklar i databasen tex spelarens level 

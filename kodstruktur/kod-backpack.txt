@@ -1,0 +1,37 @@
+//Funktion för att adda saker i ryggsäcken - däri även kolla så att man inte addar samma item 2ggr
+
+// FUNCTION ON CLICK - När användaren har skrivit i en kod och klickat på knappen "collect" {
+    // let koden = inputfält.val()
+    // if (koden == koden i ett av objekten) {
+    //     LOOPa igenom spelarens ryggsäck för att se så att itemet inte redan ligger där. Blir nog lättare att koda om alla item object innehåller rätt kod. {
+    //         if (ryggsäck.item.code == koden) {
+    //             itemet finns redan i ryggsäcken - feedback
+    //         } else {
+    //             Lägga till itemet i ryggsäcken.
+    //             Hämta databasen - lägg till objekt i ens ryggsäck, ändra användarens level +1
+    //             Skriv över databasen med den nya informationen
+    //         }
+    //     }
+    // } else {
+    //     Fel kod - feedback
+    // }
+// }
+
+
+//Funktion för att ladda alla items användaren har i ryggsäcken
+
+// FUNCTION - när man laddar ryggsäcks-sidan {
+//     Gör ett GET-call från databasen.
+//     LOOPa igenom databasens alla användare och hitta den som har rätt SESSION-id {
+//         if (SESSION-id == användarens.id) {
+//             LOOPa igenom användarens ryggsäck och appenda alla itemsen i olika divar
+//         } else {
+//             error - användaren finns inte? Något gick fel?
+//         }
+//         //När man klickar på ett item i ryggsäcken så ska det komma upp i den stora rutan
+//         FUNCTION ON CLICK - Det itemet man har klickat på ska komma upp i den stora rutan {
+//             $(this).attr("id") - man hade kunnat ge lådorna samma id som bildlänkarna
+//             Gör en div med bilden i och appenda den i det stora visningsfönstret.
+//         }
+//     }
+// }

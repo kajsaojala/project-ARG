@@ -1,0 +1,39 @@
+Vad händer när spelaren klickar på portalknappen på main view:
+Portalsida laddas: index.html/portal
+
+I STATE: nearby portal => portalID (kolla var 15:e sek var spelaren befinner sig)
+
+Vad som alltid ska visas på sidan:
+Open portal
+coordinates
+enter code 
+input fields
+button open 
+    ON CLICK CHECK:
+    Gör en foreach/find på portalerna i databasarrayen och hitta portalen som matchar med tate.nearbyPortal ID
+    Checka om koden som spelaren slagit in stämmer med nearbyPortal kod
+    IF det är true --> ladda in portalsidan portalopen.php?portal=portalID (ändra path manuellt utan att sidan laddas om, så den ej blinkar)
+    
+    ÖPPNAD PORTALSIDA
+    När sidans laddas ska alltid detta finnas:
+    Portal 
+    år 
+    GO-knapp
+        click: kolla om spelaren fortfarande är på rätt plats, ladda in 360bild (om spelaren går iväg ska den stängas ned?) 
+    recevied in this portal 
+    Tomt fält
+    collect item-knapp med CLICK funktion
+        Click: div åker upp med inputfält och collect-knapp
+            Click: Spara i ryggsäck (Edlas funktion)
+
+
+    Recevied-element skapas dynamiskt när portalsidan laddas genom CHECK vilken level spelaren är på
+    Skapa tex div för videomeddelande från Eva genom att appenda ut något genom class (som i voyage)
+        CLICK diven kommer från en class som ett clickevent i sig: CLICK ny div poppar upp med en youtube video som ligger i content mapp
+
+my open portals + info
+    Skapa element dynamiskt för portaler som har låsts upp CHECK user[index].gamePlay.level 
+        CLICK på öppen portal CHECK nearbyPortal för att se om spelaren är vid portalens plats i Malmö, OM INTE pop up med "du är inte vid portalen"
+        OM JA ladda in portalsidan index.html/portal.php?portal=portalID och gör samma check som ovan (kolla level, ladda in rätt recevied)
+
+
