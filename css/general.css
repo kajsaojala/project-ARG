@@ -1,0 +1,13 @@
+/*Allt i root går att nå i alla css-filer*/
+:root {
+    --darkBlue: #1A202E;
+    --grey: #3b4254;
+    --purple: #7a6eda;
+    --white: #fbffff;
+    --pink: #cb367a;
+}
+
+body {
+    background-color: var(--darkBlue);
+    color: var(--white);
+}
