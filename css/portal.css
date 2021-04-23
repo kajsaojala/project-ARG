@@ -1,4 +1,60 @@
+.flexCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.portalWrapper {
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+#portalContainer {
+    padding: 20px;
+}
+
+#codeContainer {
+    padding-bottom: 20px;
+}
+
+#openPortalBtn {
+    justify-content: center;
+    width: 100px;
+    height: 30px;
     background-color: var(--pink);
+}
+
+/*#codeContainer > input[type=text] {
+    border: 3px solid #ccc;
+    background: linear-gradient(to left, #ccc 3px, transparent 0);
+    background-size: 18px 1px;
+    width: 140px; 
+    font: 12px monaco, monospace; 
+    letter-spacing: 11.5px;
+    text-indent: 3px;
+    text-transform: uppercase;
+}*/
+
+#openPortalsContainer {
+    padding: 20px;
+}
+
+.openPortalTitle {
+    display: flex;
+    align-items: center;
+}
+
+#infoButton {
+    justify-content: center;
+    font-size: 10px;
+    padding-top: .5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--white);
+    border-radius: 100px;
+    margin-left: 8px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
 }
