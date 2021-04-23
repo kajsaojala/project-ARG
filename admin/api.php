@@ -72,7 +72,17 @@ if ($method === "POST") {
     $okId = $highestID + 1;
 
 
-    $user = [ "id" => $okId, "email" => $json["email"], "phone" => $json["phone"], "password" => $json["password"]];
+    $user = [ "id" => $okId, 
+    "email" => $json["email"], 
+    "phone" => $json["phone"], 
+    "password" => $json["password"], 
+    "gamePlay" => 
+        ["backpack" => 
+            ["name" => "ID-card", "code" => 0, "itemImg" => "link"],
+        "level" => 0,
+        "currentLocation" => ["longitude" => 0, "latitude" => 0]
+        ]
+    ];
     $database["users"][] = $user;
 
     var_dump($database);
