@@ -36,9 +36,7 @@ document.getElementById('register').addEventListener('submit', function(event){
             document.getElementById('regEmail').value = "";
             document.getElementById('regPhone').value = "";
             document.getElementById('regPassword').value = "";
-            $('#newUsername').val("")
-            $('#newPassword').val("")
-            console.log('JA')
+            document.getElementById('feedback').innerHTML = json.data;
         }
         console.log(json);
         

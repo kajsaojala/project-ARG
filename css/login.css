@@ -45,6 +45,10 @@ form{
 .formSmallTitle{
     margin-bottom: 0;
 }
+.formTitle{
+    margin-bottom: 0;
+    text-align: center;
+}
 #modalLoginBtn{
     border-top-left-radius: 15px;
 }

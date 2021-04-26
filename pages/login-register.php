@@ -45,6 +45,7 @@ include "../sections/header.php";
 		<div id="registerWrapper" class="logreg">
 			<form id='register'>
 				<h2 class="formTitle">Sign up</h2>
+				<p id=feedback></p>
 				<p class="formSmallTitle">Email</p>
 				<input type="text" name="regEmail" placeholder="Email" id="regEmail">
 				<p class="formSmallTitle">Phone number</p>

@@ -74,14 +74,12 @@ if ($method === "POST") {
     ];
     $database["users"][] = $user;
 
-    var_dump($database);
-
     $dataAsJSON = json_encode($database, JSON_PRETTY_PRINT);
     file_put_contents($file, $dataAsJSON);
     http_response_code(201);
     header("Content-Type: application/json");
     $message = [
-        "data" => $user
+        "data" => "You're now signed up, log in"
     ];
     echo json_encode($message);
     exit();
