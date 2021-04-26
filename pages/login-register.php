@@ -2,19 +2,24 @@
 session_start();
 include "../sections/header.php";
 ?>
+
+<div id="logregTopWrapper">
+	<div class="logotyp">LOGGA</div>
+	<h1>TELLUS</h1>
+</div>
 <div id="LoginRegWrapper">
 
 <?php if (isset($_GET["register"])) {?>
 	<ul class="tabMenu">
-        <li class="tab"><p id="modalLoginBtn">Login</p></li>
-		<li class="tab"><p class ="active"id="modalJoinBtn">Sign up</a></li>
+        <li id="modalLoginBtn"class="tab"><p>Login</p></li>
+		<li id="modalJoinBtn"class="tab active"><p>Sign up</a></li>
     </ul>
 
 <?php } else{?>
 
 	<ul class="tabMenu">
-        <li class="tab"><p class ="active" id="modalLoginBtn">Login</p></li>
-        <li class="tab"><p id="modalJoinBtn">Sign up</a></li>
+        <li id="modalLoginBtn"class="tab active"><p>Login</p></li>
+        <li id="modalJoinBtn"class="tab"><p>Sign up</a></li>
     </ul>
 <?php }?>
 
@@ -39,8 +44,12 @@ include "../sections/header.php";
 		<!--REGISTER-->
 		<div id="registerWrapper" class="logreg">
 			<form id='register'>
+				<h2 class="formTitle">Sign up</h2>
+				<p class="formSmallTitle">Email</p>
 				<input type="text" name="regEmail" placeholder="Email" id="regEmail">
+				<p class="formSmallTitle">Phone number</p>
 				<input type="text" name="regPhone" placeholder="Phone" id="regPhone">
+				<p class="formSmallTitle">Password</p>
 				<input type="text" name="regPassword" placeholder="Passsword" id="regPassword">
 				<button id="register" type="submit">Register</button>
 			</form>
