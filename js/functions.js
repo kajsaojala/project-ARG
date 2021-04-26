@@ -1,5 +1,6 @@
 'use strict';
 
+
 //Eventet där vi registrerar en ny användare
 document.getElementById('register').addEventListener('submit', function(event){
 
@@ -42,4 +43,24 @@ document.getElementById('register').addEventListener('submit', function(event){
         console.log(json);
         
     })
+})
+
+
+//Event för Login/Register
+document.getElementById('modalLoginBtn').addEventListener('click', function(){
+    document.getElementById('modalJoinBtn').classList.remove('active');
+    document.getElementById('modalLoginBtn').classList.add('active');
+
+    document.getElementById('loginWrapper').style.cssText = 'display: block;'
+    document.getElementById('registerWrapper').style.cssText = 'display: none;'
+    
+})
+document.getElementById('modalJoinBtn').addEventListener('click', function(){
+    document.getElementById('modalLoginBtn').classList.remove('active');
+    document.getElementById('modalJoinBtn').classList.add('active');
+
+    document.getElementById('loginWrapper').style.cssText = 'display: none;'
+    document.getElementById('registerWrapper').style.cssText = 'display: block;'
+    
+    
 })

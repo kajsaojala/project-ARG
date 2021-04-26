@@ -1,0 +1,19 @@
+#loginWrapper{
+
+}
+#registerWrapper{
+    display: none;
+}
+.tabMenu{
+    display: flex;
+}
+.tab{
+    list-style: none;
+    color: grey;
+}
+.active{
+    color: white;
+}
+.hide{
+    display: none;
+}
