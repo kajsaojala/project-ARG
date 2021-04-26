@@ -6,6 +6,7 @@
         <link rel='stylesheet' href='/css/general.css'>
         <link rel='stylesheet' href='/css/portal.css'>
         <link rel='stylesheet' href='/css/login.css'>
+        <link rel='stylesheet' href='/css/map.css'>
         <title>TELLUS</title>
     </head>
     <body>
