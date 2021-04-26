@@ -1,0 +1,26 @@
+#indexWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#buttonsIndex{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#buttonsIndex a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#buttonsIndex button{
+    margin-bottom: 10px;
+    width: 80%;
+}
+#signup{
+    background-color: var(--purple);
+}

@@ -1,19 +1,91 @@
-#loginWrapper{
-
+#LoginRegWrapper{
+    background-color: rgba(128, 128, 128, 0.507);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
 }
 #registerWrapper{
     display: none;
+
 }
 .tabMenu{
     display: flex;
+    width: 100%;
+    padding: 0;
+    
+    margin:0;
+    
 }
 .tab{
     list-style: none;
     color: grey;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.418);
 }
 .active{
-    color: white;
+    color: black;
+    background-color: transparent;
 }
 .hide{
     display: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;
+    align-items: center;*/
+}
+.formSmallTitle{
+    margin-bottom: 0;
+}
+.formTitle{
+    margin-bottom: 0;
+    text-align: center;
+}
+#modalLoginBtn{
+    border-top-left-radius: 15px;
+}
+#modalJoinBtn{
+    border-top-right-radius: 15px;
+}
+input{
+    
+    border-radius: 5px;
+    background-color: whitesmoke;
+    border: 1px solid #bfcaca26;
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin: 5px 0 20px;
+    color: #0a1c1d90;
+    transition: box-shadow 200ms ease;
+}
+input:hover{
+    box-shadow: 0 0 0 4px #95c5c726;
+}
+#logregTopWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    background-color: var(--pink);
+    border: 0;
+    padding: 12px 15px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    font-family: var(--styleFont);
+    box-shadow: 1px 3px 8px rgb(213, 213, 213);
+}
+button:hover{
+    box-shadow: 1px 3px 8px rgb(128, 122, 122);
+    cursor: pointer;
 }
