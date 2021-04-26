@@ -3,9 +3,6 @@ $file = "db.json";
 $database = [
     [
         "users" => []
-    ],
-    [
-        "dogs" => []
     ]
 ]; //skapar tom array för att kunna lägga in innehållet
 
@@ -28,7 +25,6 @@ $input = file_get_contents("php://input"); // all data som skickas till PHP hamn
 $json = json_decode($input, true); // vi tar innehållet i filen och gör en associativ array som vi kan använda
 
 if ($method === "POST") {
-    //if (isset($json["registration"])) { //NEDAN HÄNDER OM NÅGON VILL REGISTRERA SIG!!!
 
     if ($json["phone"] === "" || $json["email"] === "" || $json["password"] == "") {
         http_response_code(400);
@@ -43,13 +39,6 @@ if ($method === "POST") {
         echo json_encode(["errors" => "All fields must to be filled out)"]);
         exit();
     }
-
-    /*if (preg_match('/\s/',$json["username"])) {
-        http_response_code(400);
-        header("Content-Type: application/json");
-        echo json_encode(["errors" => "No spaces allowed in username"]);
-        exit();
-    }*/
 
     //Loopa igenom users för att kolla så att användarnamnet ej redan finns!
     foreach ($database["users"] as $user => $value) {
@@ -96,6 +85,5 @@ if ($method === "POST") {
     ];
     echo json_encode($message);
     exit();
-    //}
 }
 ?>

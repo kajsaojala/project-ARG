@@ -30,7 +30,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     
 }
 
-header("Location: /index.php?error=1");
+header("Location: ../pages/login-register.php?error=1");
 //http_response_code(405);
 exit();
 ?>
