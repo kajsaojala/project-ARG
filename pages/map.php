@@ -3,7 +3,7 @@ session_start();
 include "../sections/header.php";
 ?>
 <div id=mapPageWrapper>
-    <div class="back">Tillbaka</div>
+    <a href="home.php"><div class="back">Tillbaka</div></a>
 
     <h1>Map</h1>
     <div id=map></div>

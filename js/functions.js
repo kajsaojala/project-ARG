@@ -44,7 +44,7 @@ document.getElementById('register').addEventListener('submit', function(event){
 })
 
 
-//Event för Login/Register
+//Event för Login/Register fönster, DISPLAY/HIDE
 document.getElementById('modalLoginBtn').addEventListener('click', function(){
     document.getElementById('modalJoinBtn').classList.remove('active');
     document.getElementById('modalLoginBtn').classList.add('active');

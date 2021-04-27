@@ -6,7 +6,6 @@ session_start();
 $data = file_get_contents("db.json"); //tar filen
 $database = json_decode($data, true); 
 
-//var_dump($database["users"]);
 
 //Om användaren har lyckats ta sig vidare till login så sparar vi användarnamnet och lösenordet som användaren skickat med i en variabel
 if (isset($_POST["email"]) && isset($_POST["password"])) {
