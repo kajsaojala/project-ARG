@@ -11,14 +11,22 @@ include "../sections/header.php";
         </div>
 
         <div id="receivedContainer">
-            <h2 class="receivedTitle">Received in this portal</h2>
+            <h4 class="receivedTitle">Received in this portal</h2>
             <!--Här ska det ske en check vilka meddelanden spelaren har fått beroende på om portalen öppnats tidigare-->
             <!--om spelaren ej har öppnat portalen innan-->
             <p>Nothing received yet</p>
             <!--Annars skapa meddelanden utifrån databasen, i js?..-->
         </div>
 
-        <div id="collectBtn"><span id="plus">+ </span><span>Collect item</span></div>
+        <div id="collectItemBtn" class="flexCenter"><span id="plus">+ </span><span>Collect item</span></div>
+        <div id="collectBox" class="flexCenter">
+            <h3 class="collectTitle">Collect item</h3>
+            <div id="collectInputContainer">
+                <p>Item code</p>
+                <input type="text" id="collectInput" placeholder="item code">
+            </div>
+            <button id="collectBtn">Collect</button>
+        </div>
     </div>
 
 <?php 
