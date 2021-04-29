@@ -62,7 +62,7 @@ const GPS = {
         // Remove too old locations
         let timeThreshold = this.options.timeThreshold;
         let newLocations = this._arrayLocations.filter( location => {
-            console.log(timestamp, location.timestamp, timeThreshold);
+            //console.log(timestamp, location.timestamp, timeThreshold);
             return timestamp - location.timestamp < timeThreshold
         } );
 
@@ -107,7 +107,7 @@ const GPS = {
 let testCount = 0;
 let testError = 0;
 function exampleFunction(data) {
-
+    
     let inner;
     if (data === null) {
         inner = `No smooth position yet`;
@@ -116,7 +116,38 @@ function exampleFunction(data) {
         inner = `SMOOTH POS: ${latitude}, ${longitude}`;
     }
 
-    document.querySelector("body").innerHTML += `<div>${inner} - (${++testCount})</div>`;
+    console.log(inner);
+    //document.getElementById("geotest").innerHTML += `<div>${inner} - (${++testCount})</div>`;
+
+    let fp = folketspark;
+    let userOnLocation = false;
+    
+    if (Math.abs(data.latitude - fp.latitude) < 0.0001 && Math.abs(data.longitude - fp.longitude) < 0.0001) {
+        userOnLocation = true;
+    }
+
+    if (userOnLocation) {
+        console.log(`Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Folkets Parks kordinater är ${fp.latitude} och ${fp.longitude}`);
+        //document.getElementById('rightLocation').innerHTML = `Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Folkets Parks kordinater är ${fp.latitude} och ${fp.longitude}`;
+    } else {
+        console.log('Du är inte på rätt plats');
+        //document.getElementById('rightLocation').innerHTML = 'Du är inte på rätt plats'
+    }
+
+    let ah = alnursHem;
+    let userAtAlnurs = false;
+
+    if (Math.abs(data.latitude - ah.latitude) < 0.0001 && Math.abs(data.longitude - ah.longitude) < 0.0001) {
+        userAtAlnurs = true;
+    }
+
+    if (userAtAlnurs) {
+        console.log(`Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Alnurs hems kordinater är ${ah.latitude} och ${ah.longitude}`);
+        //document.getElementById('rightLocation').innerHTML = `Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Alnurs hems kordinater är ${ah.latitude} och ${ah.longitude}`;
+    } else {
+        console.log('Du är inte på rätt plats');
+        //document.getElementById('rightLocation').innerHTML = 'Du är inte på rätt plats'
+    }
 }
 
 
@@ -125,7 +156,7 @@ function exampleFunction(data) {
 // SUGGESTIONS
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-    document.querySelector("body").innerHTML += `<div>ERROR(${err.code}): ${err.message} (${++testError}: ${testCount})</div>`;
+    //document.getElementById("geotest").innerHTML += `<div>ERROR(${err.code}): ${err.message} (${++testError}: ${testCount})</div>`;
 }
 let options = {
     enableHighAccuracy: true,
@@ -136,9 +167,7 @@ let options = {
 
 // This is how you use GPS.smoothPosition:
 const gpsID = navigator.geolocation.watchPosition(GPS.smoothPosition.bind(GPS), error, options);
-
+//console.log(gpsID);
 
 // Shut down navigation after 20 seconds (inte testat!)
-setTimeout( () => { navigator.geolocation.clearWatch(gpsID); }, 20000); 
-
-
+//setTimeout( () => { navigator.geolocation.clearWatch(gpsID); }, 20000); 
