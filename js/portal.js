@@ -1,5 +1,36 @@
 'use strict';
 
+window.onload = function(){
+    switch(STATE.userLevel){
+        case 0:
+            console.log('player is on level 0');
+            loadPortalBoxes(portals[0])
+            break;
+        case 1: 
+            console.log('player is on level 1');
+            loadPortalBoxes(portals.slice(0, 2));
+            break;
+        case 2:
+            console.log('player is on level 2');
+            loadPortalBoxes(portals.slice(0, 3));
+            break;
+        case 3:
+            console.log('player is on level 3');
+            loadPortalBoxes(portals.slice(0, 4));
+            break;
+        case 4:
+            console.log('player is on level 4');
+            loadPortalBoxes(portals);
+            break; 
+    }
+}
+
+function loadPortalBoxes(portalArray){
+    //ladda upp boxarna genom att appenda i en div som kommer från classes
+    console.log(portalArray);
+}
+
+
 //KLICK på collect-item knappen
 
 const collectBox = document.getElementById('collectBox');

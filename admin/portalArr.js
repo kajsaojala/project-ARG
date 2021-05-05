@@ -1,0 +1,87 @@
+const portals = [
+    {
+        id: 0,
+        year: {
+            from: 2130,
+            to: 2021
+        },
+        location: {
+            latitude: 0,
+            longitude: 0
+        },
+        code: 0,
+        unlocked: true,
+        portalImg: false,
+        item: {
+            name: "Technical drawing",
+            code: false,
+            itemImg: false
+        },
+        message: [
+            {
+                title: "Message from Eva",
+                content: "YT-link \/ L\u00e4nk till video i mapp"
+            }
+        ]
+    },
+    {
+        id: 1,
+        year: {
+            from: 2021,
+            to: 2057
+        },
+        location: {
+            latitude: 0,
+            longitude: 0
+        },
+        code: 20570509,
+        unlocked: false,
+        portalImg: false,
+        item: {
+            name: "Mathematical formula",
+            code: false,
+            itemImg: false
+        },
+        message: []
+    },
+    {
+        id: 2,
+        year: {
+            from: 2021,
+            to: 2083
+        },
+        location: {
+            latitude: 0,
+            longitude: 0
+        },
+        code: 20831008,
+        unlocked: false,
+        portalImg: false,
+        item: {
+            name: "Recipe",
+            code: false,
+            itemImg: false
+        },
+        message: []
+    },
+    {
+        id: 3,
+        year: {
+            from: 2021,
+            to: 2109
+        },
+        location: {
+            latitude: 0,
+            longitude: 0
+        },
+        code: 21090117,
+        unlocked: false,
+        portalImg: false,
+        item: {
+            name: "Instruction manual",
+            code: false,
+            itemImg: false
+        },
+        message: []
+    }
+]

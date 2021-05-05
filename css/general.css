@@ -1,7 +1,9 @@
 /*Allt i root går att nå i alla css-filer*/
 :root {
     --darkBlue: #1A202E;
-    --grey: #3b4254;
+    --darker: #121825;
+    --grey: #2E3342;
+    --lightGrey: #555966;
     --purple: #7a6eda;
     --white: #fbffff;
     --pink: #cb367a;
@@ -11,4 +13,62 @@ body {
     background-color: var(--darkBlue);
     color: var(--white);
     margin: 0;
+    font-family: 'Roboto';
+}
+
+.flexCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 390px;
+    margin: 0 auto;
+}
+
+.navLink {
+    margin-top: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: end;
+}
+
+.backLink {
+    justify-content: start;
+}
+
+.mainview {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 30px);
+    align-items: center;
+}
+
+.mainTitle {
+    width: 90%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    flex-basis: 30px;
+}
+
+.item-box {
+    margin: 0 5% 5% 0;
+    /*background-color: var(--grey);*/
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    flex: 0 0 auto;
+    background: radial-gradient(ellipse at center,  var(--lightGrey) 0%,var(--lightGrey) 47%,var(--lightGrey) 47%,var(--grey) 47%,var(--grey) 48%);
 }

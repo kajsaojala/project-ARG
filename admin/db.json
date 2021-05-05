@@ -3,10 +3,26 @@
         {
             "id": 5,
             "email": "Elli",
-            "phone": "1456",
             "password": "1234",
             "gamePlay": {
-                "backpack": {
+                "inventory": {
+                    "name": "ID-card",
+                    "code": 0,
+                    "itemImg": "link"
+                },
+                "level": 1,
+                "currentLocation": {
+                    "longitude": 0,
+                    "latitude": 0
+                }
+            }
+        },
+        {
+            "id": 6,
+            "email": "kajsaojala@hotmail.com",
+            "password": "1234",
+            "gamePlay": {
+                "inventory": {
                     "name": "ID-card",
                     "code": 0,
                     "itemImg": "link"

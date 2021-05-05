@@ -1,25 +1,36 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["userID"])) {
+    header("Location: /index.php");
+    exit();
+}
+
 include "../sections/header.php";
 ?>
-<div id="mapPageWrapper">
-    <a href="home.php"><div class="back">Tillbaka</div></a>
 
-    <h1>Map</h1>
-    <div id="map"></div>
-    <div id="mapIconsWrapper">
-        <div class='icon'></div>
-        <div class='icon'></div>
-        <div class='icon'></div>
-    </div>
+        <div class="pageWrapper">
+            <a class="navLink backLink" href='home.php'><div id="backBtn"><-</div></a>
+            
+            <div class="mainview">
+                <h1 class="mainTitle">Map</h1>
+                <div id="mapWrapper">
+                    <div id=map></div>
+                </div>
+                <div id=map-icons>
+                    <div id="mapIcon3" class='mapIcon'></div>
+                    <div id="mapIcon2" class='mapIcon'></div>
+                    <div id="mapIcon3" class='mapIcon'></div>
+                </div>
+            </div>
 
-</div>
+        </div>
 
-<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjE0X9mjCLC6RfP52JpJNvR7-TpMuGhkA&callback=initMap&libraries=&v=weekly"
-      async
-></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjE0X9mjCLC6RfP52JpJNvR7-TpMuGhkA&callback=initMap&libraries=&v=weekly"
+            async
+        ></script>
 
-<?php 
-include "../sections/footer.php";
-?>
+        <script src="/js/maps.js"></script>
+    </body>
+</html>

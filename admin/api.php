@@ -1,14 +1,12 @@
 <?php
 $file = "db.json";
-$database = [
-    [
-        "users" => []
-    ]
-]; //skapar tom array för att kunna lägga in innehållet
 
 if (file_exists($file)) { //om filen finns ska vi ta innehållet och decoda så vi får en associativ array att jobba med
     $data = file_get_contents($file); //tar filen
     $database = json_decode($data, true); //gör om vår fil till en associativ array, den kommer se ut som ovan eftersom att det är så vi skapar den från början om filen ej finns
+} else {
+    header("Location: /pages/error.php");
+    exit();
 }
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -24,23 +22,33 @@ if ($method !== "GET" && $method !== "POST" && $method !== "DELETE") {
 $input = file_get_contents("php://input"); // all data som skickas till PHP hamnar i denna tillfälliga fil, dock ej om det är GET
 $json = json_decode($input, true); // vi tar innehållet i filen och gör en associativ array som vi kan använda
 
+
+
+
+
+//REGISTRERING AV ANVÄNDARE
+
 if ($method === "POST") {
 
-    if ($json["phone"] === "" || $json["email"] === "" || $json["password"] == "") {
+    //Först gör vi några kontroller:
+
+    //Användare har ej fyllt i alla fält (tomma strängar)
+    if ($json["email"] === "" || $json["password"] == "") {
         http_response_code(400);
         header("Content-Type: application/json");
         echo json_encode(["errors" => "All fields must to be filled out"]);
         exit();
     }
 
-    if (!isset($json["phone"]) || !isset($json["email"]) || !isset($json["password"])) {
+    //Användare har ej fyllt i alla fält (finns inte med i json)
+    if (!isset($json["email"]) || !isset($json["password"])) {
         http_response_code(400);
         header("Content-Type: application/json");
         echo json_encode(["errors" => "All fields must to be filled out)"]);
         exit();
     }
 
-    //Loopa igenom users för att kolla så att användarnamnet ej redan finns!
+    //Användare har fyllt i emailadress som redan finns
     foreach ($database["users"] as $user => $value) {
         if ($value["email"] == $json["email"]) {
             http_response_code(400);
@@ -51,6 +59,7 @@ if ($method === "POST") {
     }
 
 
+    //Skapar ett ID till användaren
     $highestID = 0; 
     foreach ($database["users"] as $user) {
         if ($user["id"] > $highestID) {
@@ -61,17 +70,20 @@ if ($method === "POST") {
     $okId = $highestID + 1;
 
 
-    $user = [ "id" => $okId, 
-    "email" => $json["email"], 
-    "phone" => $json["phone"], 
-    "password" => $json["password"], 
-    "gamePlay" => 
-        ["backpack" => 
-            ["name" => "ID-card", "code" => 0, "itemImg" => "link"],
+    //Skapar ett objekt med användarens uppgifter
+    $user = [ 
+        "id" => $okId, 
+        "email" => $json["email"], 
+        //"phone" => $json["phone"], 
+        "password" => $json["password"], 
+        "gamePlay" => 
+        ["inventory" => ["name" => "ID-card", "code" => 0, "itemImg" => "link"],
         "level" => 0,
         "currentLocation" => ["longitude" => 0, "latitude" => 0]
         ]
     ];
+
+    //Lägger till användaren i databasen
     $database["users"][] = $user;
 
     $dataAsJSON = json_encode($database, JSON_PRETTY_PRINT);

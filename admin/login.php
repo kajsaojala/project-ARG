@@ -22,14 +22,15 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     //Om användaren finns så skicka användaren till home sidan
     if ($foundUser !== null) {
         $_SESSION["email"] = $foundUser["email"];
-        //$_SESSION["IsLoggedIn"] = true;
+        $_SESSION["userID"] = $foundUser["id"];
+        $_SESSION["level"] = $foundUser["gamePlay"]["level"];
         header("Location: /pages/home.php");
         exit();
     }
     
 }
 
-header("Location: ../pages/login-register.php?error=1");
+header("Location: /index.php?error=1");
 //http_response_code(405);
 exit();
 ?>
