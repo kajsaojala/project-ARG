@@ -17,15 +17,33 @@ include "../sections/header.php";
                     <div id='fullItem'></div>
                 </div>
                 <div id=inventory-items>
-                    <div id="inventory-item1" class='item-box'></div>
-                    <div id="inventory-item2" class='item-box'></div>
-                    <div id="inventory-item3" class='item-box'></div>
-                    <div id="inventory-item4" class='item-box'></div>
+                    <div class="item-box flexCenter">
+                        <div id="item-1" class="itemSmallPng" style='background-image: url("/images/items/id-card.png");'></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-2" class="itemSmallPng"></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-3" class="itemSmallPng"></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-4" class="itemSmallPng"></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-5" class="itemSmallPng"></div>
+                    </div>
                 </div>
             </div>
 
         </div>
 
+        <script>
+            let userID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
+            let userLevel = <?php echo json_encode($_SESSION["level"], JSON_HEX_TAG);?>;
+        </script>
+        <script src='/admin/portalArr.js'></script>
+        <script src="/js/functions.js"></script>
         <script src="/js/inventory.js"></script>
+        <script src="/js/common.js"></script>
     </body>
 </html>

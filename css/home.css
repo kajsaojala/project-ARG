@@ -59,25 +59,34 @@
 	height:50%;
 }
 
-.quarter1 {
+#quarter1 {
 	top:0;
 	left:0;
     background-color: #1f2536;	
     border-radius:100% 0 0 0;
 }
-.quarter2 {
-	top:0;
-	right:0;
-	background-color: #1f2536;
-	border-radius:0 100% 0 0 ;
-}
-.quarter3 {
+#quarter2 {
 	bottom:0;
 	left:0;
 	background-color: #1f2536;
-	border-radius:0 0 0 100%;
+	border-radius: 0 0 0 100%;
+	-webkit-border-radius: 0 0 0 100%;
+	-moz-border-radius: 0 0 0 100%;
+	-ms-border-radius: 0 0 0 100%;
+	-o-border-radius: 0 0 0 100%;
+	-webkit-border-radius:0 100% 0 1;
 }
-.quarter4 {
+#quarter3 {
+	top:0;
+	right:0;
+	background-color: #1f2536;
+	border-radius:0 100% 0 0;
+	-webkit-border-radius:0 100% 0 0;
+	-moz-border-radius:0 100% 0 0;
+	-ms-border-radius:0 100% 0 0;
+	-o-border-radius:0 100% 0 0;
+}
+#quarter4 {
 	bottom:0;
 	right:0;
 	background-color: #1f2536;

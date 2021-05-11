@@ -36,6 +36,7 @@
 
 #popupLogin {
     display: none;
+    max-width: 500px;
 }
 
 #popupRegister {

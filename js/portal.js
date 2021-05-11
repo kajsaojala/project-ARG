@@ -1,50 +1,83 @@
 'use strict';
 
+//Kolla user level för att se vilka portaler som är öppnade
 window.onload = function(){
     switch(STATE.userLevel){
-        case 0:
-            console.log('player is on level 0');
-            loadPortalBoxes(portals[0])
+        case 1:
+            //console.log('player is on level 1');
+            //loadPortalBoxes(portals[0])
+            updateOpenPortals(portals.slice(0, 1));
             break;
-        case 1: 
-            console.log('player is on level 1');
-            loadPortalBoxes(portals.slice(0, 2));
-            break;
-        case 2:
-            console.log('player is on level 2');
-            loadPortalBoxes(portals.slice(0, 3));
+        case 2: 
+            //console.log('player is on level 2');
+            //loadPortalBoxes(portals.slice(0, 2));
+            updateOpenPortals(portals.slice(0, 2));
             break;
         case 3:
-            console.log('player is on level 3');
-            loadPortalBoxes(portals.slice(0, 4));
+            //console.log('player is on level 3');
+            //loadPortalBoxes(portals.slice(0, 3));
+            updateOpenPortals(portals.slice(0, 3));
             break;
         case 4:
-            console.log('player is on level 4');
-            loadPortalBoxes(portals);
-            break; 
+            //console.log('player is on level 4');
+            //loadPortalBoxes(portals.slice(0, 4));
+            updateOpenPortals(portals.slice(0, 4));
+            break;
     }
+
+    loadPortalBoxes(STATE.openPortals);
+}
+
+function updateOpenPortals(portals){
+    portals.forEach(portal => {
+        STATE.openPortals.push(new openPortalBox(portal));
+    })
 }
 
 function loadPortalBoxes(portalArray){
     //ladda upp boxarna genom att appenda i en div som kommer från classes
-    console.log(portalArray);
+    const portalDiv = document.getElementById("openPortals");
+    portalArray.forEach(element => {
+        portalDiv.append(element.createBox());
+    });
 }
 
+document.getElementById('openPortalBtn').addEventListener('click', () => {
+    let inputValue = document.getElementById('inputCode').value;
+    console.log(inputValue);
 
-//KLICK på collect-item knappen
-
-const collectBox = document.getElementById('collectBox');
-
-document.getElementById('portalGoBtn').addEventListener('click', function(){
-    console.log('Här ska vi känna av om spelaren kan öppna 360-bilden, beroende på om spelaren är på rätt ställe');
+    if (inputValue == portals[STATE.currentPortal].code) { //kollar input-koden med portalkoden
+        //om koden är rätt
+        STATE.clickedOpenPortal = true;
+        console.log(STATE);
+        document.getElementById('portalPopup').style.display = 'flex';
+        STATE.gps();
+        document.getElementById('inputCode').innerHTML = '';
+        //STATE.clickedOpenPortal = false;
+    } else {
+        document.getElementById('codePopup').style.display = 'flex';
+    }
 })
 
-document.getElementById('collectItemBtn').addEventListener('click', function(){
-    collectBox.style.display = 'flex';
+document.getElementById('infoButton').addEventListener('click', () => {
+    document.getElementById('infoPopup').style.display = 'flex';
 })
 
-document.getElementById('collectBtn').addEventListener('click', function(){
-    //Här ska det hända grejer, spara till ryggsäck, ändra level osv
-    console.log('Här får vi ge feedback till spelaren att item lades till');
-    collectBox.style.display = 'none';
+
+document.getElementById('closeInfoInfo').addEventListener('click', () => {
+    document.getElementById('infoPopup').style.display = 'none';
 })
+
+document.getElementById('closePortalInfo').addEventListener('click', () => {
+    document.getElementById('portalPopup').style.display = 'none';
+    navigator.geolocation.clearWatch(gpsID);
+    document.getElementById('portalPopupInfo').innerHTML = 'Looking for your location...';
+})
+
+document.getElementById('closeCodeInfo').addEventListener('click', () => {
+    document.getElementById('codePopup').style.display = 'none';
+})
+function loadOpenPortalPage(){
+    //Ska ta emot vilken portal som ska laddas upp + dess nycklar som tex 360-bild
+    console.log('Ta bort html på sidan och ladda in nytt');
+}

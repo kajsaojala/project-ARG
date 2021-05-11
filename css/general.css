@@ -14,6 +14,8 @@ body {
     color: var(--white);
     margin: 0;
     font-family: 'Roboto';
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .flexCenter {
@@ -63,7 +65,19 @@ a {
     flex-basis: 30px;
 }
 
+.itemSmallPng {
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 35px;
+}
+
+/*#item-1 {
+    background-image: url('/images/items/id-card.png');
+}*/
+
 .item-box {
+    justify-content: center;
     margin: 0 5% 5% 0;
     /*background-color: var(--grey);*/
     width: 80px;

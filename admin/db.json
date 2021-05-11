@@ -10,7 +10,7 @@
                     "code": 0,
                     "itemImg": "link"
                 },
-                "level": 1,
+                "level": 3,
                 "currentLocation": {
                     "longitude": 0,
                     "latitude": 0
@@ -27,7 +27,7 @@
                     "code": 0,
                     "itemImg": "link"
                 },
-                "level": 0,
+                "level": 1,
                 "currentLocation": {
                     "longitude": 0,
                     "latitude": 0

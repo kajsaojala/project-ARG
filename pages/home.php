@@ -18,26 +18,36 @@ include "../sections/header.php";
                     <div class="top-box t-left">
                         <div id="circle">
                             <div id="innerCircle">
-                                <div class="quarter quarter1"></div>
-                                <div class="quarter quarter2"></div>
-                                <div class="quarter quarter3"></div>
-                                <div class="quarter quarter4"></div>
+                                <div class="quarter" id="quarter1"></div>
+                                <div class="quarter" id="quarter2"></div>
+                                <div class="quarter" id="quarter3"></div>
+                                <div class="quarter" id="quarter4"></div>
                                 <div id="progress" class="cutout">0%</div>
                             </div> <!--Procent ska kännas av beroende på nivå-->
                         </div>
                     </div>
                     <div class="top-box t-right">
                         <h1 id="top-time"><?php echo $timeStamp;?></h1>
-                        <h1 id="top-year">2130</h1> <!--året ska ändras beroende på om man står i portal-->
+                        <h1 id="top-year">2021</h1> <!--året ska ändras beroende på om man står i portal-->
                         <!--<h1 id="top-cord">55°36'21.13" N 13°00'2.63" E</h1>-->
                     </div>
                 </div>
                 <div id="mainview-items">
-                    <div class="item-1 item-box"></div>
-                    <div class="item-2 item-box"></div>
-                    <div class="item-3 item-box"></div>
-                    <div class="item-4 item-box"></div>
-                    <div class="item-5 item-box"></div>
+                    <div class="item-box flexCenter">
+                        <div id="item-1" class="itemSmallPng" style='background-image: url("/images/items/id-card.png");'></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-2" class="itemSmallPng"></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-3" class="itemSmallPng"></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-4" class="itemSmallPng"></div>
+                    </div>
+                    <div class="item-box flexCenter">
+                        <div id="item-5" class="itemSmallPng"></div>
+                    </div>
                 </div>
                 <div id="mainview-map">
                     <div id="map-div"></div>
@@ -56,5 +66,6 @@ include "../sections/header.php";
 
         <script src='/admin/portalArr.js'></script>
         <script src="/js/functions.js"></script>
+        <script src="/js/common.js"></script>
     </body>
 </html>

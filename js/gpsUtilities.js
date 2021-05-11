@@ -9,6 +9,7 @@
 
 */
 
+let gpsID
 
 const GPS = {
 
@@ -114,40 +115,43 @@ function exampleFunction(data) {
     } else {
         let {latitude, longitude} = data;
         inner = `SMOOTH POS: ${latitude}, ${longitude}`;
+
+        portals.forEach(portal => {
+            if (Math.abs(data.latitude - portal.location.latitude) < 0.0003 && Math.abs(data.longitude - portal.location.longitude) < 0.0003) {
+                
+                if (STATE.clickedPortal == portal.id && STATE.userLevel >= portal.id) {
+                    navigator.geolocation.clearWatch(gpsID);
+                    document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location for this portal' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
+                    setTimeout(() => {
+                        window.location.search = `?openPortal=${portal.id}`;
+                    }, 3000);
+                } else if (STATE.clickedOpenPortal && STATE.userLevel >= portal.id) {
+                    navigator.geolocation.clearWatch(gpsID);
+                    document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
+                    setTimeout(() => {
+                        window.location.search = `?openPortal=${portal.id}`;
+                    }, 5000);
+                } else {
+                    navigator.geolocation.clearWatch(gpsID);
+                    document.getElementById('portalPopupInfo').innerHTML = 'You are not on the right location for this portal';
+                }
+    
+                console.log('test');
+    
+                /*else {
+                    navigator.geolocation.clearWatch(gpsID);
+                    document.getElementById('portalPopupInfo').innerHTML = 'You are not the right location for this portal';
+                }*/
+            }
+        })
     }
 
     console.log(inner);
+    //console.log(STATE);
     //document.getElementById("geotest").innerHTML += `<div>${inner} - (${++testCount})</div>`;
 
-    let fp = folketspark;
-    let userOnLocation = false;
+    //document.getElementById('portalPopupInfo').innerHTML = inner;
     
-    if (Math.abs(data.latitude - fp.latitude) < 0.0001 && Math.abs(data.longitude - fp.longitude) < 0.0001) {
-        userOnLocation = true;
-    }
-
-    if (userOnLocation) {
-        console.log(`Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Folkets Parks kordinater är ${fp.latitude} och ${fp.longitude}`);
-        //document.getElementById('rightLocation').innerHTML = `Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Folkets Parks kordinater är ${fp.latitude} och ${fp.longitude}`;
-    } else {
-        console.log('Du är inte på rätt plats');
-        //document.getElementById('rightLocation').innerHTML = 'Du är inte på rätt plats'
-    }
-
-    let ah = alnursHem;
-    let userAtAlnurs = false;
-
-    if (Math.abs(data.latitude - ah.latitude) < 0.0001 && Math.abs(data.longitude - ah.longitude) < 0.0001) {
-        userAtAlnurs = true;
-    }
-
-    if (userAtAlnurs) {
-        console.log(`Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Alnurs hems kordinater är ${ah.latitude} och ${ah.longitude}`);
-        //document.getElementById('rightLocation').innerHTML = `Du är på rätt plats, dina kordinater är ${data.latitude} och ${data.longitude}, och Alnurs hems kordinater är ${ah.latitude} och ${ah.longitude}`;
-    } else {
-        console.log('Du är inte på rätt plats');
-        //document.getElementById('rightLocation').innerHTML = 'Du är inte på rätt plats'
-    }
 }
 
 
@@ -166,7 +170,7 @@ let options = {
 
 
 // This is how you use GPS.smoothPosition:
-const gpsID = navigator.geolocation.watchPosition(GPS.smoothPosition.bind(GPS), error, options);
+//const gpsID = navigator.geolocation.watchPosition(GPS.smoothPosition.bind(GPS), error, options);
 //console.log(gpsID);
 
 // Shut down navigation after 20 seconds (inte testat!)

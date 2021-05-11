@@ -10,6 +10,25 @@
     padding-bottom: 20px;
 }
 
+#exitPortal {
+    display: block;
+    opacity: .3;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.portalTitle {
+    margin-bottom: 5px;
+}
+
 #openPortalBtn {
     justify-content: center;
     width: 100px;
@@ -30,11 +49,87 @@
 
 #openPortalsContainer {
     padding: 20px;
+    margin-top: 30px;
 }
 
 .openPortalTitle {
     display: flex;
     align-items: center;
+    padding-left: 3px;
+}
+
+.openPortalTitle h3 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#openPortals {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.portalBox {
+    display: block;
+    border: 1px solid white;
+    padding: 0 10px;
+    width: 55%;
+    margin: 0 0 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+#portalPopup {
+    position: absolute;
+    width: 80%;
+    height: 200px;
+    background-color: white;
+    top: 25vh;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: none; 
+    color: black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#codePopup {
+    position: absolute;
+    width: 80%;
+    height: 200px;
+    background-color: white;
+    top: 25vh;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: none; 
+    color: black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#infoPopup {
+    position: absolute;
+    width: 80%;
+    height: 200px;
+    background-color: white;
+    top: 25vh;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: none; 
+    color: black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #infoButton {
