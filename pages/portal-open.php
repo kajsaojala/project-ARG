@@ -1,4 +1,4 @@
-<div class="portalWrapper">
+<div class="openPortalWrapper">
     <a href="portal.php" id="exitPortal">Exit portal</a>
     <div id="portalContainer" class="flexCenter">
         <h2 class="openPortalTitle">Portal</h2>

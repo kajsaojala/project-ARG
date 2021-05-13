@@ -3,7 +3,7 @@
 session_start();
 unset($_SESSION["email"]);
 unset($_SESSION["userID"]);
-unset($_SESSION["level"]);
+//unset($_SESSION["level"]);
 session_destroy();
 header("Location: /index.php");
 exit();

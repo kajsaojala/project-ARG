@@ -4,15 +4,18 @@
 window.onload = function(){
     switch(STATE.userLevel){
         case 1:
-            console.log('bara id:et som visas');
+            console.log('bara id:et som visas, level 1');
             break;
-        case 2: 
+        case 2:
+            console.log('level 2');
             updateInventory(portals.slice(0, 1));
             break;
         case 3:
+            console.log('level 3');
             updateInventory(portals.slice(0, 2));
             break;
         case 4:
+            console.log('level 4');
             updateInventory(portals.slice(0, 3));
             break;
         case 5:

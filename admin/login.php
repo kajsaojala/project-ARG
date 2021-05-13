@@ -23,7 +23,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     if ($foundUser !== null) {
         $_SESSION["email"] = $foundUser["email"];
         $_SESSION["userID"] = $foundUser["id"];
-        $_SESSION["level"] = $foundUser["gamePlay"]["level"];
+        //$_SESSION["level"] = $foundUser["gamePlay"]["level"];
         header("Location: /pages/home.php");
         exit();
     }

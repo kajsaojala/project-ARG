@@ -5,6 +5,13 @@
     height: 100vh;
     position: relative;
     justify-content: space-around;
+
+    background-color: var(--darkBlue);
+    color: var(--white);
+    margin: 0;
+    font-family: 'Roboto';
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 #buttonsIndex{

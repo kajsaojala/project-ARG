@@ -108,6 +108,8 @@ const GPS = {
 let testCount = 0;
 let testError = 0;
 function exampleFunction(data) {
+    document.getElementById('portalPopup').style.display = 'flex';
+    document.getElementById('portalPopupInfo').innerHTML = 'Looking for your location...';
     
     let inner;
     if (data === null) {
@@ -119,7 +121,7 @@ function exampleFunction(data) {
         portals.forEach(portal => {
             if (Math.abs(data.latitude - portal.location.latitude) < 0.0003 && Math.abs(data.longitude - portal.location.longitude) < 0.0003) {
                 
-                if (STATE.clickedPortal == portal.id && STATE.userLevel >= portal.id) {
+                if (STATE.clickedPortal == portal.id) {
                     navigator.geolocation.clearWatch(gpsID);
                     document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location for this portal' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
                     setTimeout(() => {
@@ -136,7 +138,7 @@ function exampleFunction(data) {
                     document.getElementById('portalPopupInfo').innerHTML = 'You are not on the right location for this portal';
                 }
     
-                console.log('test');
+                //console.log('test');
     
                 /*else {
                     navigator.geolocation.clearWatch(gpsID);

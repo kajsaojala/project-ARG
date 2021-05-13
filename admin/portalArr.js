@@ -7,13 +7,9 @@ const portals = [
             to: 2130
         },
         location: {
-            latitude: 55.595446,
-            longitude: 12.97836
-        },
-        /*location: {
             latitude: 55.607938,
             longitude: 12.993812
-        },*/
+        },
         code: null,
         unlocked: true,
         portalImg: false,
@@ -37,9 +33,13 @@ const portals = [
             to: 2057
         },
         location: {
+            latitude: 55.595446,
+            longitude: 12.97836
+        },
+        /*location: {
             latitude: 55.609578,
             longitude: 12.997708
-        },
+        },*/
         code: 20570509,
         unlocked: false,
         portalImg: false,

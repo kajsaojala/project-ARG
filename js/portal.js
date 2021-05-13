@@ -11,14 +11,19 @@ window.onload = function(){
         case 2: 
             //console.log('player is on level 2');
             //loadPortalBoxes(portals.slice(0, 2));
-            updateOpenPortals(portals.slice(0, 2));
+            updateOpenPortals(portals.slice(0, 1));
             break;
         case 3:
             //console.log('player is on level 3');
             //loadPortalBoxes(portals.slice(0, 3));
-            updateOpenPortals(portals.slice(0, 3));
+            updateOpenPortals(portals.slice(0, 2));
             break;
         case 4:
+            //console.log('player is on level 4');
+            //loadPortalBoxes(portals.slice(0, 4));
+            updateOpenPortals(portals.slice(0, 3));
+            break;
+        case 5:
             //console.log('player is on level 4');
             //loadPortalBoxes(portals.slice(0, 4));
             updateOpenPortals(portals.slice(0, 4));
@@ -42,21 +47,26 @@ function loadPortalBoxes(portalArray){
     });
 }
 
+//När spelaren klickar på OPEN-knappen efter att ha slagit in koden
 document.getElementById('openPortalBtn').addEventListener('click', () => {
     let inputValue = document.getElementById('inputCode').value;
     console.log(inputValue);
+    STATE.userLevel = 2;
+    console.log(STATE);
 
     if (inputValue == portals[STATE.currentPortal].code) { //kollar input-koden med portalkoden
         //om koden är rätt
         STATE.clickedOpenPortal = true;
         console.log(STATE);
-        document.getElementById('portalPopup').style.display = 'flex';
+        //document.getElementById('portalPopup').style.display = 'flex';
         STATE.gps();
-        document.getElementById('inputCode').innerHTML = '';
+        //document.getElementById('inputCode').innerHTML = '';
         //STATE.clickedOpenPortal = false;
     } else {
         document.getElementById('codePopup').style.display = 'flex';
     }
+
+    document.getElementById('inputCode').value = '';
 })
 
 document.getElementById('infoButton').addEventListener('click', () => {

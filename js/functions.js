@@ -2,67 +2,56 @@
 
 let STATE = {
     userID,
-    userLevel,
+    userLevel: '',
     gps: () => {
         console.log('test');
         gpsID = navigator.geolocation.watchPosition(GPS.smoothPosition.bind(GPS), error, options);
     },
-    currentPortal: 0, //i en funktion när portal på kartan markeras ska denna uppdateras med vilken portal spelaren är påväg till
+    currentPortal: '', //i en funktion när portal på kartan markeras ska denna uppdateras med vilken portal spelaren är påväg till
     clickedOpenPortal: false,
     clickedPortal: false,
     inventory: [],
     openPortals: []
 }
 
+/*window.onload = function (){
+    console.log('test');
+}
 
+window.onresize(alert(window.onload))*/
+
+
+//window.onresize(alert(window.onload))
+/*function getData(){
+    let request = new Request(`/admin/api.php?userID=${userID}`);
+    fetch(request)
+    .then(r => r.json())
+    .then(data => {
+        console.log(data.data);
+        STATE.userLevel = data.data.level;
+        console.log(STATE);
+    });
+}*/
+/*
+getData()
 console.log(STATE);
 
-
-
-switch(STATE.userLevel){
-    case 1:
-        //console.log('bara id:et som visas');
-        break;
-    case 2: 
-        fillProgressBar(1);
-        break;
-    case 3:
-        fillProgressBar(2);
-        break;
-    case 4:
-        fillProgressBar(3);
-        break;
-    case 5:
-        fillProgressBar(4);
-        break;
-}
-    
-
-function fillProgressBar(number){
-    //document.querySelector(`.quarter${number}`).classList.add('filledProgress');
-    let procent = document.getElementById('progress');
-
-    let quarter = document.querySelectorAll('.quarter');
-    quarter.forEach( (el) => {
-        let id = el.id;
-        let idNum = id.substr(7);
-        if (idNum <= number) {
-            el.style.backgroundColor = '#cb367a';
-        }
+document.getElementById('circle').addEventListener('click', () => {
+    let request = new Request("/admin/api.php", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+            userID: STATE.userID,
+            level: STATE.userLevel
+        })
     })
-
-    switch(number){
-        case 1: 
-            procent.innerHTML = '25%';
-            break;
-        case 2:
-            procent.innerHTML = '50%';
-            break;
-        case 3: 
-            procent.innerHTML = '75%';
-            break;
-        case 4:
-            procent.innerHTML = '100%';
-            break;      
-    }
-}
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource => {
+        console.log(resource);
+        //Laddar om sidan så att innehållet i profilen laddas om direkt och påsåvis uppdateras!
+        window.location.reload();
+    })
+})*/

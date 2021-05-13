@@ -12,7 +12,7 @@ if (file_exists($file)) { //om filen finns ska vi ta innehållet och decoda så 
 $method = $_SERVER["REQUEST_METHOD"];
 
 //Vår API tillåter POST, GET & DELETE så först kollar vi om det inte är den metoden för att meddela användaren att det inte går
-if ($method !== "GET" && $method !== "POST" && $method !== "DELETE") {
+if ($method !== "GET" && $method !== "POST" && $method !== "PATCH" && $method !== "DELETE") {
     http_response_code(405);
     header("Content-Type: application/json");
     echo json_encode(["message" => "Method not allowed"]);
@@ -23,7 +23,25 @@ $input = file_get_contents("php://input"); // all data som skickas till PHP hamn
 $json = json_decode($input, true); // vi tar innehållet i filen och gör en associativ array som vi kan använda
 
 
+//------------ GET (get används i functions.js i window.onload där STATE fyller i userLevel ---------
 
+// Om metoden är GET
+if ($method === "GET") {
+        $userInfo;
+
+        foreach ($database["users"] as $index => $user) {
+            if ($user["id"] == $_GET["userID"]) {
+                $userInfo = $user["gamePlay"];
+            }
+        }
+    
+        http_response_code(200);
+        //header("Content-Type: application/json");
+        // Skicka med hela DB
+        $message = ["data" => $userInfo];
+        echo json_encode($message);
+        exit();
+}
 
 
 //REGISTRERING AV ANVÄNDARE
@@ -95,5 +113,36 @@ if ($method === "POST") {
     ];
     echo json_encode($message);
     exit();
+}
+
+
+//-------------------------PATCH (ändra userlevel vid collect)-----------------------------
+
+if ($method === "PATCH") {
+    $currentUserIndex;
+
+    foreach ($database["users"] as $index => $user) {
+        if ($user["id"] == $json['userID']) {
+            $currentUserIndex = $index;
+        }
+    }
+    
+    $newLevel = $database["users"][$currentUserIndex]["gamePlay"]["level"] = ++$json["level"];
+
+    $newData = $database["users"][$currentUserIndex];
+    
+
+    $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
+    file_put_contents($file, $dataJSON);
+    http_response_code(201);
+    header("Content-Type: application/json");
+    $message = [
+        "data" => $newData
+    ];
+    echo json_encode($message);
+    exit();
+
+ 
+
 }
 ?>

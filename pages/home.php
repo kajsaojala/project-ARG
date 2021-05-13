@@ -53,7 +53,7 @@ include "../sections/header.php";
                     <div id="map-div"></div>
                 </div>
                 <div id="mainview-menu">
-                    <a href="inventory.php"><div class="b1 menu-button">I</div></a>
+                    <a href="inventory.php" id="inventoryBtn"><div class="b1 menu-button">I</div></a>
                     <a href="portal.php"><div class="b2 menu-button">P</div></a>
                     <a href="map.php"><div class="b3 menu-button">M</div></a>
                 </div>
@@ -61,11 +61,12 @@ include "../sections/header.php";
         </div>
         <script>
             let userID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
-            let userLevel = <?php echo json_encode($_SESSION["level"], JSON_HEX_TAG);?>;
         </script>  
 
         <script src='/admin/portalArr.js'></script>
         <script src="/js/functions.js"></script>
+        <script src="/js/getData.js"></script>
+        <script src="/js/home.js"></script>
         <script src="/js/common.js"></script>
     </body>
 </html>

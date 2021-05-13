@@ -1,5 +1,27 @@
 .portalWrapper {
     position: relative;
+    background-color: var(--darkBlue);
+    color: var(--white);
+    font-family: 'Roboto';
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.openPortalWrapper {
+    position: relative;
+    background-color: var(--darkBlue);
+    color: var(--white);
+    font-family: 'Roboto';
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100%;
 }
 
 #portalContainer {

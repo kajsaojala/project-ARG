@@ -77,20 +77,24 @@
 	-webkit-border-radius:0 100% 0 1;
 }
 #quarter3 {
-	top:0;
-	right:0;
-	background-color: #1f2536;
-	border-radius:0 100% 0 0;
-	-webkit-border-radius:0 100% 0 0;
-	-moz-border-radius:0 100% 0 0;
-	-ms-border-radius:0 100% 0 0;
-	-o-border-radius:0 100% 0 0;
-}
-#quarter4 {
 	bottom:0;
 	right:0;
 	background-color: #1f2536;
-	border-radius:0 0 100% 0 ;
+	border-radius:0 0 100% 0;
+	-webkit-border-radius:0 0 100% 0;
+	-moz-border-radius:0 0 100% 0;
+	-ms-border-radius:0 0 100% 0;
+	-o-border-radius:0 0 100% 0;
+}
+#quarter4 {
+	top:0;
+	right:0;
+	background-color: #1f2536;
+	border-radius:0 100% 0 0 ;
+	-webkit-border-radius:0 100% 0 0 ;
+	-moz-border-radius:0 100% 0 0 ;
+	-ms-border-radius:0 100% 0 0 ;
+	-o-border-radius:0 100% 0 0 ;
 }
 
 .filledProgress {
@@ -130,7 +134,7 @@
 }
 
 #mainview-items {
-    width: 90%;
+    width: 93%;
     /* height: 100px; */
     display: flex;
     flex-wrap: nowrap;
@@ -153,7 +157,7 @@
 #map-div {
     background-color: var(--grey);
     height: 80%;
-    width: 90%;
+    width: 93%;
 }
 
 #mainview-menu {

@@ -37,7 +37,7 @@ include "../sections/header.php";
     
                 <div id="portalPopup">
                     <div id="closePortalInfo">x</div>
-                    <div id="portalPopupInfo">Looking for your location...</div>
+                    <div id="portalPopupInfo">Loading...</div>
                 </div>
 
                 <div id="codePopup">
@@ -57,12 +57,13 @@ include "../sections/header.php";
         </div>
         <script>
             let userID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
-            let userLevel = <?php echo json_encode($_SESSION["level"], JSON_HEX_TAG);?>;
+            //let userLevel = <?php echo json_encode($_SESSION["level"], JSON_HEX_TAG);?>;
         </script>  
         <script src='/admin/portalArr.js'></script>
         <script src='/js/gpsUtilities.js'></script>
         <script src='/js/classes.js'></script>
         <script src="/js/functions.js"></script>
+        <script src="/js/getData.js"></script>
         <script src="/js/portal.js"></script>
         <script src="/js/portal-open.js"></script>
     </body>
