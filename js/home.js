@@ -17,9 +17,7 @@ function loadProgress(){
             fillProgressBar(4);
             break;
     }
-}
-
-    
+}  
 
 function fillProgressBar(number){
     //document.querySelector(`.quarter${number}`).classList.add('filledProgress');
@@ -48,4 +46,12 @@ function fillProgressBar(number){
             procent.innerHTML = '100%';
             break;      
     }
+}
+
+function loadMap(num){
+    const mapDiv = document.getElementById('map-div');
+    mapDiv.style.backgroundImage = `url(/images/maps/map-${num}.png)`;
+    mapDiv.style.backgroundSize = "cover";
+    mapDiv.style.backgroundRepeat = "no-repeat";
+    mapDiv.style.backgroundPosition = "center";
 }

@@ -169,7 +169,7 @@
     -o-border-radius: 100px;
 }
 
-#collectItemBtn {
+.collectItemBtnBig {
     position: absolute;
     flex-direction: row;
     width: 45vw;

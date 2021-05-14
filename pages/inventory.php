@@ -41,8 +41,8 @@ include "../sections/header.php";
             let userID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
         </script>
         <script src='/admin/portalArr.js'></script>
-        <script src="/js/functions.js"></script>
         <script src="/js/inventory.js"></script>
         <script src="/js/common.js"></script>
+        <script src="/js/functions.js"></script>
     </body>
 </html>

@@ -1,7 +1,8 @@
 'use strict';
 
 //Ladda in items som spelaren har samlat in i STATE
-window.onload = function(){
+
+function updateInventoryState(){
     switch(STATE.userLevel){
         case 1:
             console.log('bara id:et som visas, level 1');

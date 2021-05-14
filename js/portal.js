@@ -1,7 +1,7 @@
 'use strict';
 
 //Kolla user level för att se vilka portaler som är öppnade
-window.onload = function(){
+function loadOpenPortals(){
     switch(STATE.userLevel){
         case 1:
             //console.log('player is on level 1');
@@ -51,10 +51,9 @@ function loadPortalBoxes(portalArray){
 document.getElementById('openPortalBtn').addEventListener('click', () => {
     let inputValue = document.getElementById('inputCode').value;
     console.log(inputValue);
-    STATE.userLevel = 2;
-    console.log(STATE);
+    //console.log(portals[STATE.currentPortal - 1].code);
 
-    if (inputValue == portals[STATE.currentPortal].code) { //kollar input-koden med portalkoden
+    if (inputValue == portals[STATE.currentPortal - 1].code) { //kollar input-koden med portalkoden
         //om koden är rätt
         STATE.clickedOpenPortal = true;
         console.log(STATE);

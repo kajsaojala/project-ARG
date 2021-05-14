@@ -32,7 +32,6 @@ include "../sections/header.php";
         </script>
         <script src='/admin/portalArr.js'></script>
         <script src="/js/functions.js"></script>
-        <script src="/js/getData.js"></script>
 
         <script src="/js/maps.js"></script>
         <script

@@ -1,6 +1,6 @@
 const portals = [
     {
-        id: 0,
+        id: 1,
         name: 'Röd cirkel Malmö Live',
         year: {
             from: 2021,
@@ -26,7 +26,7 @@ const portals = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         name: 'Cirkel centralen',
         year: {
             from: 2021,
@@ -51,7 +51,7 @@ const portals = [
         message: []
     },
     {
-        id: 2,
+        id: 3,
         name: 'Lejonpassagen',
         year: {
             from: 2021,
@@ -72,7 +72,7 @@ const portals = [
         message: []
     },
     {
-        id: 3,
+        id: 4,
         name: 'Stadsbiblioteket',
         year: {
             from: 2021,

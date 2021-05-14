@@ -11,7 +11,16 @@
 			<button id="startButton">Open Portal</button>
 		</div>
 		<div id="info">This only works on a mobile device <br>
-			<a href="/pages/portal-open.php">Go back</a>
+			<script>
+				let linkBack = document.createElement('a');
+				let url = window.location.href;
+				let path = url.substr(url.lastIndexOf('/') + 1);
+				let cut = path.substr(0, path.length - 5);
+				let num = cut.charAt(cut.length-1);
+				linkBack.setAttribute('href', `/pages/portal.php?openPortal=${num}`);
+				linkBack.innerHTML = 'Go back';
+				document.getElementById('info').append(linkBack)
+			</script>
 		</div>
 
 		<script type="module">
