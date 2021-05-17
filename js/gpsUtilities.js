@@ -118,45 +118,41 @@ function exampleFunction(data) {
         let {latitude, longitude} = data;
         inner = `SMOOTH POS: ${latitude}, ${longitude}`;
 
-        portals.forEach(portal => {
-            if (Math.abs(data.latitude - portal.location.latitude) < 0.0003 && Math.abs(data.longitude - portal.location.longitude) < 0.0003) {
-                
-                if (STATE.clickedPortal == portal.id) {
-                    navigator.geolocation.clearWatch(gpsID);
-                    document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location for this portal' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
-                    setTimeout(() => {
-                        window.location.search = `?openPortal=${portal.id}`;
-                    }, 3000);
-                } else if (STATE.clickedOpenPortal && STATE.userLevel >= portal.id) {
-                    navigator.geolocation.clearWatch(gpsID);
-                    document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
-                    setTimeout(() => {
-                        window.location.search = `?openPortal=${portal.id}`;
-                    }, 5000);
-                } else {
-                    navigator.geolocation.clearWatch(gpsID);
-                    document.getElementById('portalPopupInfo').innerHTML = 'You are not on the right location for this portal';
-                }
+        //let coordsMatch;
+        function checkCoords(){
+
+            portals.forEach(portal => {
+                if (Math.abs(data.latitude - portal.location.latitude) < 0.0003 && Math.abs(data.longitude - portal.location.longitude) < 0.0003) {
+                    
+                    if (STATE.clickedPortal == portal.id) {
+                        navigator.geolocation.clearWatch(gpsID);
+                        document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location for this portal' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
+                        setTimeout(() => {
+                            window.location.search = `?openPortal=${portal.id}`;
+                        }, 3000);
+                        return coordsMatch = true;
+                    } else if (STATE.clickedOpenPortal && STATE.userLevel >= portal.id) {
+                        navigator.geolocation.clearWatch(gpsID);
+                        document.getElementById('portalPopupInfo').innerHTML = 'You are on the right location' + (portal.name) + `lat: ${portal.location.latitude} & lang: ${portal.location.longitude}` + '.' + 'Your location is' + `lat: ${data.latitude} & lang: ${data.longitude}`;
+                        setTimeout(() => {
+                            window.location.search = `?openPortal=${portal.id}`;
+                        }, 5000);
+                        return coordsMatch = true;
+                    }
     
-                //console.log('test');
-    
-                /*else {
-                    navigator.geolocation.clearWatch(gpsID);
-                    document.getElementById('portalPopupInfo').innerHTML = 'You are not the right location for this portal';
-                }*/
-            }
-        })
+                } 
+            })
+
+            navigator.geolocation.clearWatch(gpsID);
+            console.log('inte på rätt plats');
+            document.getElementById('portalPopupInfo').innerHTML = 'You are not on the right location for this portal';
+        }
+
+        checkCoords();
     }
 
     console.log(inner);
-    //console.log(STATE);
-    //document.getElementById("geotest").innerHTML += `<div>${inner} - (${++testCount})</div>`;
-
-    //document.getElementById('portalPopupInfo').innerHTML = inner;
-    
 }
-
-
 
 
 // SUGGESTIONS

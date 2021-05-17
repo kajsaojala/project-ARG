@@ -33,9 +33,13 @@ const portals = [
             to: 2057
         },
         location: {
+            latitude: 55.5920196,
+            longitude: 13.01678179
+        },
+        /*location: { Kajsas hem
             latitude: 55.595446,
             longitude: 12.97836
-        },
+        },*/
         /*location: {
             latitude: 55.609578,
             longitude: 12.997708
